@@ -15,7 +15,13 @@ const db = mysql.createConnection({
     user: 'root',
     password: '',
 })
-
+db.query("CREATE DATABASE IF NOT EXISTS login", function(err, result) {
+    if (err) {  
+        console.log(err);
+    } else {
+        console.log("Database created");
+    }
+})
 db.connect(function(err)  {
     if (err) {
         console.log(err);
